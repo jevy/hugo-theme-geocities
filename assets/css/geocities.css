@@ -154,7 +154,7 @@ body {
   height: 100%;
   z-index: -1;
   overflow: hidden;
-  background: url('/img/geo/cloudbackground.png') center center;
+  background: url('{{ "img/geo/cloudbackground.png" | relURL }}') center center;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -242,7 +242,7 @@ a:visited {
    Header / Welcome Banner - FLAMES BANNER!!!
    ----------------------------------------------------------------------------- */
 .geo-header {
-  background: url('/img/geo/flames.gif') repeat-x bottom;
+  background: url('{{ "img/geo/flames.gif" | relURL }}') repeat-x bottom;
   background-color: #000;
   padding: 0;
   margin-bottom: 0;
