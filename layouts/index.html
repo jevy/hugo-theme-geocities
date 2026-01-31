@@ -1,45 +1,102 @@
 {{ define "main" }}
+
+<!-- WELCOME MARQUEE - Essential! -->
+<marquee behavior="alternate" scrollamount="5">
+  <img src="/img/geo/hot.gif" alt="HOT!">
+  <span class="rainbow-text" style="font-size: 1.5rem;">*** WELCOME TO MY HOMEPAGE!!! ***</span>
+  <img src="/img/geo/new.gif" alt="NEW!">
+  <span class="rainbow-text" style="font-size: 1.5rem;">*** Thanks for stopping by! ***</span>
+  <img src="/img/geo/hot.gif" alt="HOT!">
+</marquee>
+
 <!-- Welcome Panel -->
 <div class="geo-panel">
-  <div class="geo-panel-title">Welcome to My CyberPad!</div>
+  <div class="geo-panel-title">
+    <span class="bounce" style="display: inline-block;">*</span>
+    Welcome to My CyberPad!
+    <span class="bounce" style="display: inline-block;">*</span>
+  </div>
 
-  <div class="marquee-container">
-    <span class="marquee-text">
-      *** Welcome to {{ .Site.Title }}'s Homepage! *** Thanks for stopping by! ***
-      {{ with .Site.Params.description }}{{ . }}{{ end }} ***
-    </span>
+  <div style="text-align: center; margin: 15px 0;">
+    <span style="font-size: 3rem;" class="spin">*</span>
+    <span style="font-size: 2rem; color: magenta;" class="bounce">~*~</span>
+    <span class="rainbow-text" style="font-size: 1.8rem;">WELCOME!!!</span>
+    <span style="font-size: 2rem; color: magenta;" class="bounce">~*~</span>
+    <span style="font-size: 3rem;" class="spin">*</span>
   </div>
 
   {{ with .Site.Params.banner }}
-  <p style="text-align: center; font-size: 1.2rem;">
+  <p style="text-align: center; font-size: 1.3rem; font-weight: bold;">
     {{ .subtitle | default "Welcome to my corner of the web!" }}
+    <span class="new-badge">NEW!</span>
   </p>
   {{ end }}
 
   <div class="rainbow-bar"></div>
+
+  <marquee scrollamount="3" style="margin: 15px 0;">
+    <span style="color: lime; font-weight: bold;">
+      *** {{ .Site.Title }}'s Homepage ***
+      {{ with .Site.Params.description }}{{ . }}{{ end }}
+      *** Best viewed in Netscape Navigator! ***
+      *** You are visitor #<span id="inline-counter">???</span>! ***
+    </span>
+  </marquee>
+</div>
+
+<!-- Under Construction Notice - VERY IMPORTANT -->
+<div style="text-align: center; margin: 20px 0;">
+  <img src="/img/geo/construction.gif" alt="Under Construction">
+  <p style="font-family: 'Comic Sans MS', cursive; color: #000; background: #fff; display: inline-block; padding: 10px; border: 2px dashed #ff00ff;">
+    <img src="/img/geo/new.gif" alt="NEW!">
+    Please excuse the mess! I'm working hard to make this site
+    <span class="rainbow-text">TOTALLY AWESOME!</span>
+    <img src="/img/geo/new.gif" alt="NEW!">
+  </p>
 </div>
 
 {{ if .Site.Params.tiles.enable }}
 <!-- Projects / Showcases -->
 <div class="geo-panel">
-  <div class="geo-panel-title">My Projects &amp; Stuff</div>
+  <div class="geo-panel-title">
+    <img src="/img/geo/flames.gif" alt="FIRE!" style="height: 25px; vertical-align: middle;">
+    My Projects &amp; Stuff
+    <img src="/img/geo/hot.gif" alt="HOT!" style="vertical-align: middle;">
+  </div>
 
   {{ range .Site.Params.tiles.showcase }}
-  <div style="margin-bottom: 20px; padding: 15px; border: 2px ridge var(--geo-border); background: rgba(0,0,51,0.5);">
-    <h3 style="margin-top: 0;">
+  <div style="margin-bottom: 20px; padding: 15px; border: 3px ridge #ff00ff; background: #fff;">
+    <h3 style="margin-top: 0; color: blue;">
+      <span class="bounce" style="display: inline-block;">></span>
       <a href="{{ .url }}" target="_blank">{{ .title }}</a>
+      {{ if eq (mod $.Scratch.Get "proj-idx" | default 0) 0 }}
+      <img src="/img/geo/new.gif" alt="NEW!" style="vertical-align: middle;">
+      {{ end }}
     </h3>
-    <p>{{ .subtitle }}</p>
+    <p style="color: #000;">{{ .subtitle }}</p>
   </div>
+  {{ $.Scratch.Add "proj-idx" 1 }}
   {{ end }}
 </div>
 {{ end }}
+
+<!-- Cool Stuff Section -->
+<div class="welcome-mat">
+  <h2>Check Out My Cool Stuff!</h2>
+  <p style="color: #fff; font-weight: bold; text-shadow: 2px 2px 0 #000;">
+    Click around and explore! Don't forget to sign my guestbook!
+  </p>
+</div>
 
 <!-- Recent Articles -->
 {{ $articles := where .Site.RegularPages "Section" "articles" }}
 {{ if $articles }}
 <div class="geo-panel">
-  <div class="geo-panel-title">Latest Articles</div>
+  <div class="geo-panel-title">
+    <span class="pulse" style="display: inline-block;">*</span>
+    Latest Articles
+    <span class="pulse" style="display: inline-block;">*</span>
+  </div>
 
   <ul class="posts-list">
     {{ range first 5 $articles }}
@@ -54,8 +111,14 @@
     {{ end }}
   </ul>
 
+  <div class="rainbow-bar"></div>
+
   <p style="text-align: center;">
-    <a href="/articles/" class="geo-button geo-button-primary">View All Articles &raquo;</a>
+    <a href="/articles/" class="geo-button geo-button-primary">
+      <span class="bounce" style="display: inline-block;">>></span>
+      View All Articles
+      <span class="bounce" style="display: inline-block;"><<</span>
+    </a>
   </p>
 </div>
 {{ end }}
@@ -64,7 +127,10 @@
 {{ $podcasts := where .Site.RegularPages "Section" "podcasts" }}
 {{ if $podcasts }}
 <div class="geo-panel">
-  <div class="geo-panel-title">Latest Podcasts</div>
+  <div class="geo-panel-title">
+    Latest Podcasts
+    <img src="/img/geo/hot.gif" alt="HOT!" style="vertical-align: middle;">
+  </div>
 
   <ul class="posts-list">
     {{ range first 3 $podcasts }}
@@ -80,40 +146,76 @@
   </ul>
 
   <p style="text-align: center;">
-    <a href="/podcasts/" class="geo-button geo-button-primary">Listen to More &raquo;</a>
+    <a href="/podcasts/" class="geo-button geo-button-primary">
+      Listen to More >>>
+    </a>
   </p>
 </div>
 {{ end }}
 
 <!-- Contact Section -->
 {{ if .Site.Params.contact.enable }}
-<div class="geo-panel">
-  <div class="geo-panel-title">Contact Me!</div>
+<div class="geo-panel sparkle-border">
+  <div class="geo-panel-title">
+    <span class="wiggle" style="display: inline-block;">*</span>
+    Contact Me!
+    <span class="wiggle" style="display: inline-block;">*</span>
+  </div>
 
-  <p style="text-align: center;">
-    Want to get in touch? Drop me a line!
+  <p style="text-align: center; font-size: 1.2rem;">
+    <span class="rainbow-text">Want to get in touch?</span> Drop me a line!
   </p>
 
   <div style="text-align: center;">
     {{ range .Site.Params.contact.email }}
     <p>
-      <strong style="color: var(--geo-yellow);">{{ .title }}:</strong>
-      <a href="mailto:{{ .email }}">{{ .email }}</a>
+      <strong style="color: red; animation: blink 1s step-end infinite;">{{ .title }}:</strong>
+      <a href="mailto:{{ .email }}" style="font-size: 1.1rem;">{{ .email }}</a>
     </p>
     {{ end }}
   </div>
 </div>
 {{ end }}
 
-<!-- Guestbook teaser -->
+<!-- Guestbook teaser - ESSENTIAL -->
 <div class="guestbook">
-  <h3>Sign My Guestbook!</h3>
-  <p>Thanks for visiting! Feel free to reach out via email or social media.</p>
+  <h3>
+    <span class="spin" style="display: inline-block; font-size: 1.5rem;">*</span>
+    Sign My Guestbook!!!
+    <span class="spin" style="display: inline-block; font-size: 1.5rem;">*</span>
+  </h3>
+  <p style="color: #000; font-weight: bold;">
+    Thanks for visiting my cyber home! Feel free to reach out via email or social media.
+    <span class="blink" style="color: red;">Please sign before you leave!</span>
+  </p>
   <div style="text-align: center;">
     {{ range .Site.Params.sidebar.social }}
-    <a href="{{ .url }}" target="_blank" class="geo-button" style="margin: 5px;">{{ .label }}</a>
+    <a href="{{ .url }}" target="_blank" class="geo-button" style="margin: 5px;">
+      {{ .label }}
+    </a>
     {{ end }}
   </div>
 </div>
+
+<!-- Bottom Marquee -->
+<marquee behavior="scroll" direction="right" scrollamount="4" style="margin-top: 20px;">
+  <img src="/img/geo/new.gif" alt="NEW!">
+  <span style="color: #000; background: yellow; padding: 5px; font-weight: bold;">
+    *** Thanks for visiting! ***
+  </span>
+  <img src="/img/geo/flames.gif" alt="FIRE!" style="height: 20px; vertical-align: middle;">
+  <span style="color: magenta; font-weight: bold;">
+    Come back soon!
+  </span>
+  <img src="/img/geo/hot.gif" alt="HOT!">
+  <span style="color: #000; background: cyan; padding: 5px; font-weight: bold;">
+    *** Tell your friends! ***
+  </span>
+  <img src="/img/geo/new.gif" alt="NEW!">
+  <span class="rainbow-text">
+    This site is ALWAYS under construction!
+  </span>
+  <img src="/img/geo/construction.gif" alt="Under Construction" style="height: 25px; vertical-align: middle;">
+</marquee>
 
 {{ end }}

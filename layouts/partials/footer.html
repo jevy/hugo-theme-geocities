@@ -1,40 +1,34 @@
 <!-- GeoCities Footer -->
 <footer class="geo-footer">
   <div class="geo-footer-inner">
-    <!-- Rainbow Bar -->
     <div class="rainbow-bar"></div>
 
-    <!-- Visitor Counter -->
-    <div class="visitor-counter">
-      <span id="visitor-count">000000</span>
+    <!-- Badges -->
+    <div class="badges" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; margin: 10px 0;">
+      <img src="/img/geo/netscape.gif" alt="Best viewed with Netscape Navigator">
+      <span class="badge">Made with Hugo</span>
+      <span class="badge">Y2K compliant!</span>
     </div>
 
-    <!-- Retro Badges -->
-    <div class="badges">
-      <span class="badge">Best viewed in Netscape Navigator</span>
-      <span class="badge">Made with Hugo</span>
-      <span class="badge">GeoCities Forever!</span>
+    <!-- Under Construction -->
+    <div style="margin: 10px 0;">
+      <img src="/img/geo/construction.gif" alt="Under Construction" style="height: 30px;">
     </div>
+
+    <!-- Copyright -->
+    <p style="margin: 10px 0; font-size: 0.9rem;">
+      &copy; {{ now.Format "2006" }} {{ with .Site.Params.copyright }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}
+    </p>
 
     <!-- Social Links -->
     {{ if .Site.Params.sidebar.social }}
-    <div class="footer-links">
+    <div style="margin: 10px 0;">
       {{ range .Site.Params.sidebar.social }}
-      <a href="{{ .url }}" target="_blank" title="{{ .label }}">{{ .label }}</a>
+      <a href="{{ .url }}" target="_blank" class="geo-button" style="margin: 2px;">{{ .label }}</a>
       {{ end }}
     </div>
     {{ end }}
 
-    <!-- Copyright -->
-    <p class="footer-text">
-      &copy; {{ now.Format "2006" }} {{ with .Site.Params.copyright }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}
-      <br>
-      <small>You are visitor #<span id="visitor-count-footer">????</span> since 1999!</small>
-    </p>
-
-    <!-- Under Construction (subtle nod) -->
-    <div class="under-construction">
-      Site eternally under construction
-    </div>
+    <div class="rainbow-bar"></div>
   </div>
 </footer>
