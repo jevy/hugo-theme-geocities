@@ -260,6 +260,27 @@ a:hover {
   text-shadow: 0 0 10px var(--geo-yellow);
 }
 
+.geo-toggle {
+  display: inline-block;
+  margin-left: 20px;
+  padding: 8px 16px;
+  background: linear-gradient(180deg, #664400 0%, #442200 50%, #331100 100%);
+  border: 2px outset #886600;
+  color: var(--geo-yellow);
+  text-decoration: none;
+  font-family: var(--font-pixel);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.geo-toggle:hover {
+  border-style: inset;
+  background: linear-gradient(180deg, #442200 0%, #331100 50%, #220000 100%);
+  color: var(--geo-lime);
+  text-shadow: 0 0 10px var(--geo-lime);
+}
+
 /* -----------------------------------------------------------------------------
    Content Panels
    ----------------------------------------------------------------------------- */
