@@ -1,20 +1,26 @@
 {{ partial "head.html" . }}
 
 <body>
-  <!-- Animated Stars Background -->
+  <!-- Cloud Background -->
   {{ partial "stars.html" . }}
 
   <div class="page-wrapper">
-    <!-- Header Banner -->
+    <!-- Header Banner with FLAMES -->
     {{ partial "header.html" . }}
 
     <!-- Navigation -->
     {{ partial "nav.html" . }}
 
-    <!-- Main Content -->
-    <main class="main-content">
-      {{ block "content" . }}{{ end }}
-    </main>
+    <!-- Main Layout with Sidebar -->
+    <div class="geo-layout">
+      <!-- Sidebar -->
+      {{ partial "sidebar.html" . }}
+
+      <!-- Main Content -->
+      <main class="geo-main">
+        {{ block "content" . }}{{ end }}
+      </main>
+    </div>
 
     <!-- Footer -->
     {{ partial "footer.html" . }}

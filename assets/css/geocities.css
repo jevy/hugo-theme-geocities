@@ -16,21 +16,21 @@
   --geo-blue: #0000FF;
   --geo-purple: #9400D3;
 
-  /* Light sky background colors */
-  --geo-bg: #87CEEB;
-  --geo-bg-light: #B0E0E6;
-  --geo-panel: rgba(255, 255, 255, 0.9);
+  /* XP BLISS CLOUDS - Classic Vibes */
+  --geo-bg: #3A6EA5;
+  --geo-bg-light: #6CA0DC;
+  --geo-panel: rgba(255, 255, 255, 0.95);
   --geo-panel-solid: #FFFFFF;
   --geo-border: #000080;
   --geo-text: #000000;
   --geo-link: #0000FF;
   --geo-link-hover: #FF00FF;
 
-  /* Windows 95 colors */
-  --win95-gray: #c0c0c0;
-  --win95-dark-gray: #808080;
-  --win95-light-gray: #dfdfdf;
-  --win95-blue: #000080;
+  /* Windows XP colors */
+  --win95-gray: #ECE9D8;
+  --win95-dark-gray: #ACA899;
+  --win95-light-gray: #FFFFFF;
+  --win95-blue: #0A246A;
 
   /* Fonts - COMIC SANS SUPREME */
   --font-pixel: 'VT323', 'Courier New', monospace;
@@ -144,7 +144,7 @@ body {
 }
 
 /* -----------------------------------------------------------------------------
-   CLOUDS BACKGROUND - Classic GeoCities Style!
+   XP BLISS CLOUD BACKGROUND - Classic Windows XP Vibes!
    ----------------------------------------------------------------------------- */
 .stars-container {
   position: fixed;
@@ -154,56 +154,17 @@ body {
   height: 100%;
   z-index: -1;
   overflow: hidden;
-  /* Light blue sky gradient */
-  background: linear-gradient(180deg,
-    #4A90D9 0%,
-    #87CEEB 30%,
-    #B0E0E6 60%,
-    #E0F4FF 100%
-  );
+  background: url('/img/geo/cloudbackground.png') center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .stars {
-  position: absolute;
-  width: 200%;
-  height: 100%;
+  display: none;
 }
 
-/* CSS Clouds - Fluffy and nostalgic! */
 .stars-layer {
-  position: absolute;
-  width: 200%;
-  height: 100%;
-}
-
-.stars-layer:nth-child(1) {
-  background:
-    radial-gradient(ellipse 200px 80px at 100px 100px, rgba(255,255,255,0.9) 0%, transparent 70%),
-    radial-gradient(ellipse 150px 60px at 300px 150px, rgba(255,255,255,0.85) 0%, transparent 70%),
-    radial-gradient(ellipse 180px 70px at 500px 80px, rgba(255,255,255,0.9) 0%, transparent 70%),
-    radial-gradient(ellipse 220px 90px at 700px 200px, rgba(255,255,255,0.85) 0%, transparent 70%),
-    radial-gradient(ellipse 160px 65px at 900px 120px, rgba(255,255,255,0.9) 0%, transparent 70%);
-  animation: cloud-drift 60s linear infinite;
-}
-
-.stars-layer:nth-child(2) {
-  background:
-    radial-gradient(ellipse 250px 100px at 200px 250px, rgba(255,255,255,0.8) 0%, transparent 70%),
-    radial-gradient(ellipse 180px 70px at 450px 300px, rgba(255,255,255,0.75) 0%, transparent 70%),
-    radial-gradient(ellipse 200px 80px at 650px 280px, rgba(255,255,255,0.8) 0%, transparent 70%),
-    radial-gradient(ellipse 170px 65px at 850px 320px, rgba(255,255,255,0.75) 0%, transparent 70%);
-  animation: cloud-drift 80s linear infinite;
-  animation-delay: -20s;
-}
-
-.stars-layer:nth-child(3) {
-  background:
-    radial-gradient(ellipse 300px 120px at 50px 400px, rgba(255,255,255,0.7) 0%, transparent 70%),
-    radial-gradient(ellipse 220px 85px at 350px 450px, rgba(255,255,255,0.65) 0%, transparent 70%),
-    radial-gradient(ellipse 260px 100px at 600px 420px, rgba(255,255,255,0.7) 0%, transparent 70%),
-    radial-gradient(ellipse 200px 75px at 800px 480px, rgba(255,255,255,0.65) 0%, transparent 70%);
-  animation: cloud-drift 100s linear infinite;
-  animation-delay: -40s;
+  display: none;
 }
 
 /* -----------------------------------------------------------------------------
@@ -278,35 +239,29 @@ a:visited {
 }
 
 /* -----------------------------------------------------------------------------
-   Header / Welcome Banner - MAXIMUM IMPACT
+   Header / Welcome Banner - FLAMES BANNER!!!
    ----------------------------------------------------------------------------- */
 .geo-header {
-  background: linear-gradient(90deg,
-    var(--geo-red) 0%,
-    var(--geo-orange) 14%,
-    var(--geo-yellow) 28%,
-    var(--geo-lime) 42%,
-    var(--geo-cyan) 56%,
-    var(--geo-blue) 70%,
-    var(--geo-purple) 84%,
-    var(--geo-magenta) 100%);
-  background-size: 200% 100%;
-  animation: rainbow-scroll 3s linear infinite;
-  padding: 5px;
-  margin-bottom: 20px;
+  background: url('/img/geo/flames.gif') repeat-x bottom;
+  background-color: #000;
+  padding: 0;
+  margin-bottom: 0;
+  min-height: 80px;
 }
 
 .geo-header-inner {
-  background: linear-gradient(180deg, #ffffcc 0%, #ffccff 100%);
-  border: 3px ridge #ff00ff;
-  padding: 10px;
+  background: linear-gradient(180deg,
+    #000 0%,
+    rgba(0,0,0,0.9) 60%,
+    transparent 100%);
+  padding: 10px 10px 35px 10px;
   text-align: center;
 }
 
 .geo-header h1 {
   font-size: 2.5rem;
   margin: 0;
-  animation: rainbow 2s linear infinite, grow 1s ease-in-out infinite;
+  animation: rainbow 2s linear infinite;
   text-shadow:
     3px 3px 0 #000,
     -1px -1px 0 #000,
@@ -316,21 +271,21 @@ a:visited {
 
 .geo-header .tagline {
   font-family: var(--font-comic);
-  color: var(--geo-blue);
-  margin: 10px 0 0 0;
-  font-size: 1.2rem;
+  color: var(--geo-cyan);
+  margin: 5px 0 0 0;
+  font-size: 1rem;
   font-weight: bold;
-  text-shadow: 1px 1px 0 #fff;
+  text-shadow: 1px 1px 0 #000;
 }
 
 /* -----------------------------------------------------------------------------
-   Navigation - Windows 95 Style!
+   Navigation - Classic XP Style!
    ----------------------------------------------------------------------------- */
 .geo-nav {
-  background: var(--win95-gray);
-  border: 3px outset var(--win95-light-gray);
-  margin-bottom: 20px;
-  padding: 10px;
+  background: linear-gradient(180deg, #0A246A 0%, #A6CAF0 100%);
+  border-bottom: 2px solid #000080;
+  margin-bottom: 0;
+  padding: 8px;
 }
 
 .geo-nav ul {
@@ -340,7 +295,7 @@ a:visited {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .geo-nav li {
@@ -349,32 +304,32 @@ a:visited {
 
 .geo-nav a {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 4px 12px;
   background: var(--win95-gray);
   border: 2px outset var(--win95-light-gray);
   color: #000;
   text-decoration: none;
   font-family: var(--font-comic);
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: bold;
 }
 
 .geo-nav a:hover {
   border-style: inset;
-  background: var(--win95-dark-gray);
-  color: var(--geo-magenta);
+  background: var(--geo-yellow);
+  color: var(--geo-red);
 }
 
 .geo-toggle {
   display: inline-block;
-  margin-left: 20px;
-  padding: 8px 16px;
+  margin-left: 10px;
+  padding: 4px 12px;
   background: var(--geo-yellow);
   border: 2px outset var(--win95-light-gray);
   color: #000;
   text-decoration: none;
   font-family: var(--font-comic);
-  font-size: 1rem;
+  font-size: 0.85rem;
   cursor: pointer;
   font-weight: bold;
   animation: blink-slow 1s ease-in-out infinite;
@@ -386,28 +341,104 @@ a:visited {
 }
 
 /* -----------------------------------------------------------------------------
-   Content Panels - Windows 95 Dialog Style
+   SIDEBAR - Classic GeoCities Left Panel!
+   ----------------------------------------------------------------------------- */
+.geo-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.geo-sidebar {
+  width: 180px;
+  flex-shrink: 0;
+}
+
+.geo-main {
+  flex: 1;
+  min-width: 300px;
+  padding: 0 15px;
+}
+
+.sidebar-box {
+  background: rgba(255, 255, 204, 0.95);
+  border: 3px ridge var(--geo-blue);
+  padding: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+}
+
+.sidebar-box h4 {
+  color: var(--geo-red);
+  font-size: 0.95rem;
+  margin: 0 0 8px 0;
+  text-shadow: 1px 1px 0 #fff;
+  border-bottom: 2px dashed var(--geo-magenta);
+  padding-bottom: 5px;
+}
+
+.sidebar-box p {
+  color: #000;
+  font-size: 0.8rem;
+  margin: 5px 0;
+}
+
+.sidebar-box a {
+  color: var(--geo-blue);
+}
+
+.sidebar-box img {
+  max-width: 100%;
+  margin: 5px 0;
+}
+
+.sidebar-btn {
+  display: block;
+  background: linear-gradient(180deg, var(--geo-red), #800000);
+  color: #fff;
+  padding: 6px;
+  margin: 5px 0;
+  text-decoration: none;
+  font-family: var(--font-comic);
+  font-size: 0.85rem;
+  font-weight: bold;
+  border: 2px outset #ff6666;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.sidebar-btn:hover {
+  border-style: inset;
+  background: linear-gradient(180deg, #800000, var(--geo-red));
+}
+
+/* -----------------------------------------------------------------------------
+   Content Panels - Classic XP Style
    ----------------------------------------------------------------------------- */
 .geo-panel {
-  background: var(--win95-gray);
-  border: 3px outset var(--win95-light-gray);
+  background: rgba(255, 255, 255, 0.95);
+  border: 3px ridge var(--geo-blue);
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
 }
 
 .geo-panel-title {
-  background: var(--win95-blue);
+  background: linear-gradient(180deg, #0A246A 0%, #A6CAF0 100%);
   color: #fff;
   padding: 5px 10px;
   margin: -20px -20px 15px -20px;
   font-family: var(--font-comic);
   font-size: 1.1rem;
   font-weight: bold;
+  text-shadow: 1px 1px 0 #000;
 }
 
 /* -----------------------------------------------------------------------------
-   Rainbow Separator - ESSENTIAL
+   Rainbow Separator - ESSENTIAL (static for CPU sanity)
    ----------------------------------------------------------------------------- */
 .rainbow-bar {
   height: 10px;
@@ -420,8 +451,6 @@ a:visited {
     #4B0082 70%,
     #9400D3 84%,
     #FF0000 100%);
-  background-size: 200% 100%;
-  animation: rainbow-scroll 2s linear infinite;
   margin: 20px 0;
   border: 2px ridge #000;
 }
@@ -608,8 +637,6 @@ marquee {
     var(--geo-blue) 70%,
     var(--geo-purple) 84%,
     var(--geo-magenta) 100%);
-  background-size: 200% 100%;
-  animation: rainbow-scroll 3s linear infinite;
   padding: 5px;
   margin-top: auto;
 }
@@ -678,7 +705,7 @@ marquee {
   color: var(--geo-blue);
 }
 
-/* Under construction notice - BLINKING IS ESSENTIAL */
+/* Under construction notice - slower blink for CPU */
 .under-construction {
   display: inline-block;
   background: var(--geo-yellow);
@@ -687,7 +714,7 @@ marquee {
   font-family: var(--font-comic);
   font-weight: bold;
   font-size: 1.2rem;
-  animation: blink 1s step-end infinite;
+  animation: blink 2s step-end infinite;
   margin: 15px 0;
   border: 3px ridge var(--geo-orange);
 }
@@ -706,7 +733,7 @@ marquee {
 .guestbook h3 {
   margin-top: 0;
   color: var(--geo-red);
-  animation: wiggle 0.5s ease-in-out infinite;
+  animation: wiggle 2s ease-in-out infinite;
   text-shadow: 2px 2px 0 #fff;
 }
 
@@ -714,47 +741,47 @@ marquee {
    EXTRA UNHINGED CLASSES
    ----------------------------------------------------------------------------- */
 
-/* Blinking text */
+/* Blinking text - slower for CPU */
 .blink {
-  animation: blink 1s step-end infinite;
+  animation: blink 2s step-end infinite;
 }
 
-/* Rainbow text */
+/* Rainbow text - slower for CPU */
 .rainbow-text {
-  animation: rainbow 2s linear infinite;
+  animation: rainbow 4s linear infinite;
   font-weight: bold;
 }
 
-/* Spinning element */
+/* Spinning element - slower for CPU */
 .spin {
-  animation: spin 2s linear infinite;
+  animation: spin 4s linear infinite;
   display: inline-block;
 }
 
-/* Bouncing element */
+/* Bouncing element - slower for CPU */
 .bounce {
-  animation: bounce 0.5s ease-in-out infinite;
+  animation: bounce 1.5s ease-in-out infinite;
   display: inline-block;
 }
 
-/* Shaking element */
+/* Shaking element - much slower for CPU */
 .shake {
-  animation: shake 0.3s ease-in-out infinite;
+  animation: shake 1s ease-in-out infinite;
   display: inline-block;
 }
 
-/* Growing/pulsing element */
+/* Growing/pulsing element - slower for CPU */
 .pulse {
-  animation: grow 1s ease-in-out infinite;
+  animation: grow 2s ease-in-out infinite;
   display: inline-block;
 }
 
-/* Crazy glow text */
+/* Crazy glow text - slower for CPU */
 .glow-crazy {
-  animation: glow-crazy 2s linear infinite;
+  animation: glow-crazy 4s linear infinite;
 }
 
-/* NEW! badge style */
+/* NEW! badge style - slower blink for CPU */
 .new-badge {
   display: inline-block;
   background: var(--geo-red);
@@ -763,13 +790,13 @@ marquee {
   font-family: var(--font-comic);
   font-size: 0.8rem;
   font-weight: bold;
-  animation: blink 0.5s step-end infinite;
+  animation: blink 2s step-end infinite;
   border: 2px solid #000;
   transform: rotate(-10deg);
   margin-left: 5px;
 }
 
-/* HOT! badge */
+/* HOT! badge - static for CPU sanity */
 .hot-badge {
   display: inline-block;
   background: linear-gradient(to top, var(--geo-red), var(--geo-orange), var(--geo-yellow));
@@ -778,7 +805,6 @@ marquee {
   font-family: var(--font-comic);
   font-size: 0.8rem;
   font-weight: bold;
-  animation: shake 0.2s ease-in-out infinite;
   border: 2px solid #000;
 }
 
@@ -793,38 +819,61 @@ marquee {
 
 .welcome-mat h2 {
   margin: 0;
-  animation: rainbow 1.5s linear infinite, bounce 1s ease-in-out infinite;
+  animation: rainbow 3s linear infinite;
   font-size: 2rem;
 }
 
-/* Fire text effect */
+/* Fire text effect - NO animation for CPU sanity */
 .fire-text {
   background: linear-gradient(to top, #ff0000, #ff7700, #ffff00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shake 0.1s ease-in-out infinite;
   font-weight: bold;
 }
 
-/* Sparkle border */
+/* Sparkle border - static for CPU sanity */
 .sparkle-border {
-  border: 5px dashed;
-  animation: rainbow-bg 2s linear infinite;
+  border: 5px dashed var(--geo-magenta);
   padding: 15px;
 }
 
 /* -----------------------------------------------------------------------------
    Responsive Design
    ----------------------------------------------------------------------------- */
-@media (max-width: 768px) {
-  .main-content {
-    padding: 10px;
+@media (max-width: 900px) {
+  .geo-layout {
+    flex-direction: column;
   }
 
-  h1 { font-size: 1.8rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.3rem; }
+  .geo-sidebar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .sidebar-box {
+    width: calc(50% - 10px);
+    min-width: 150px;
+  }
+
+  .geo-main {
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content,
+  .geo-main {
+    padding: 5px;
+  }
+
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1.1rem; }
 
   .geo-header h1 {
     font-size: 1.5rem;
@@ -846,7 +895,23 @@ marquee {
   }
 
   marquee {
-    font-size: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .sidebar-box {
+    width: 100%;
+  }
+
+  .geo-panel {
+    padding: 10px;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  th, td {
+    padding: 5px;
   }
 }
 
@@ -938,7 +1003,5 @@ hr {
     #4B0082 70%,
     #9400D3 84%,
     #FF0000 100%);
-  background-size: 200% 100%;
-  animation: rainbow-scroll 2s linear infinite;
   margin: 20px 0;
 }
