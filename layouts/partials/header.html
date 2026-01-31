@@ -7,9 +7,14 @@
       <img src="/img/geo/new.gif" alt="NEW!">
     </div>
 
-    <h1 class="fire-text" style="font-size: 2rem; margin: 5px 0;">
-      {{ .Site.Params.navigation.title | default .Site.Title }}
-    </h1>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
+      <h1 class="fire-text" style="font-size: 2rem; margin: 5px 0;">
+        {{ .Site.Params.navigation.title | default .Site.Title }}
+      </h1>
+      <button onclick="toggleTheme()" class="theme-toggle geo-toggle" title="Switch to normal mode">
+        Normal Mode
+      </button>
+    </div>
 
     {{ with .Site.Params.navigation.subtitle }}
     <p class="tagline" style="margin: 5px 0;">
