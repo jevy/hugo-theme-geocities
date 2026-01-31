@@ -1,0 +1,13 @@
+{{- $name := "" -}}
+{{- $style := "" -}}
+{{- $alt := "" -}}
+{{- if reflect.IsMap . -}}
+  {{- $name = .name -}}
+  {{- $style = .style | default "" -}}
+  {{- $alt = .alt | default .name -}}
+{{- else -}}
+  {{- $name = . -}}
+  {{- $alt = . -}}
+{{- end -}}
+{{- $src := printf "img/geo/%s" $name | relURL -}}
+<img src="{{ $src }}" alt="{{ $alt }}"{{ with $style }} style="{{ . }}"{{ end }}>

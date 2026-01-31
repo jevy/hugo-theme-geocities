@@ -2,11 +2,11 @@
 
 <!-- WELCOME MARQUEE - Essential! -->
 <marquee behavior="alternate" scrollamount="5">
-  <img src="/img/geo/hot.gif" alt="HOT!">
+  {{ partial "geo-img.html" (dict "name" "hot.gif" "alt" "HOT!") }}
   <span class="rainbow-text" style="font-size: 1.5rem;">*** WELCOME TO MY HOMEPAGE!!! ***</span>
-  <img src="/img/geo/new.gif" alt="NEW!">
+  {{ partial "geo-img.html" (dict "name" "new.gif" "alt" "NEW!") }}
   <span class="rainbow-text" style="font-size: 1.5rem;">*** Thanks for stopping by! ***</span>
-  <img src="/img/geo/hot.gif" alt="HOT!">
+  {{ partial "geo-img.html" (dict "name" "hot.gif" "alt" "HOT!") }}
 </marquee>
 
 <!-- Welcome Panel -->
@@ -46,12 +46,12 @@
 
 <!-- Under Construction Notice - VERY IMPORTANT -->
 <div style="text-align: center; margin: 20px 0;">
-  <img src="/img/geo/construction.gif" alt="Under Construction">
+  {{ partial "geo-img.html" (dict "name" "construction.gif" "alt" "Under Construction") }}
   <p style="font-family: 'Comic Sans MS', cursive; color: #000; background: #fff; display: inline-block; padding: 10px; border: 2px dashed #ff00ff;">
-    <img src="/img/geo/new.gif" alt="NEW!">
+    {{ partial "geo-img.html" (dict "name" "new.gif" "alt" "NEW!") }}
     Please excuse the mess! I'm working hard to make this site
     <span class="rainbow-text">TOTALLY AWESOME!</span>
-    <img src="/img/geo/new.gif" alt="NEW!">
+    {{ partial "geo-img.html" (dict "name" "new.gif" "alt" "NEW!") }}
   </p>
 </div>
 
@@ -59,9 +59,9 @@
 <!-- Projects / Showcases -->
 <div class="geo-panel">
   <div class="geo-panel-title">
-    <img src="/img/geo/flames.gif" alt="FIRE!" style="height: 25px; vertical-align: middle;">
+    {{ partial "geo-img.html" (dict "name" "flames.gif" "alt" "FIRE!" "style" "height: 25px; vertical-align: middle;") }}
     My Projects &amp; Stuff
-    <img src="/img/geo/hot.gif" alt="HOT!" style="vertical-align: middle;">
+    {{ partial "geo-img.html" (dict "name" "hot.gif" "alt" "HOT!" "style" "vertical-align: middle;") }}
   </div>
 
   {{ range .Site.Params.tiles.showcase }}
@@ -70,7 +70,7 @@
       <span class="bounce" style="display: inline-block;">></span>
       <a href="{{ .url }}" target="_blank">{{ .title }}</a>
       {{ if eq (mod $.Scratch.Get "proj-idx" | default 0) 0 }}
-      <img src="/img/geo/new.gif" alt="NEW!" style="vertical-align: middle;">
+      {{ partial "geo-img.html" (dict "name" "new.gif" "alt" "NEW!" "style" "vertical-align: middle;") }}
       {{ end }}
     </h3>
     <p style="color: #000;">{{ .subtitle }}</p>
@@ -129,7 +129,7 @@
 <div class="geo-panel">
   <div class="geo-panel-title">
     Latest Podcasts
-    <img src="/img/geo/hot.gif" alt="HOT!" style="vertical-align: middle;">
+    {{ partial "geo-img.html" (dict "name" "hot.gif" "alt" "HOT!" "style" "vertical-align: middle;") }}
   </div>
 
   <ul class="posts-list">
@@ -199,23 +199,23 @@
 
 <!-- Bottom Marquee -->
 <marquee behavior="scroll" direction="right" scrollamount="4" style="margin-top: 20px;">
-  <img src="/img/geo/new.gif" alt="NEW!">
+  {{ partial "geo-img.html" (dict "name" "new.gif" "alt" "NEW!") }}
   <span style="color: #000; background: yellow; padding: 5px; font-weight: bold;">
     *** Thanks for visiting! ***
   </span>
-  <img src="/img/geo/flames.gif" alt="FIRE!" style="height: 20px; vertical-align: middle;">
+  {{ partial "geo-img.html" (dict "name" "flames.gif" "alt" "FIRE!" "style" "height: 20px; vertical-align: middle;") }}
   <span style="color: magenta; font-weight: bold;">
     Come back soon!
   </span>
-  <img src="/img/geo/hot.gif" alt="HOT!">
+  {{ partial "geo-img.html" (dict "name" "hot.gif" "alt" "HOT!") }}
   <span style="color: #000; background: cyan; padding: 5px; font-weight: bold;">
     *** Tell your friends! ***
   </span>
-  <img src="/img/geo/new.gif" alt="NEW!">
+  {{ partial "geo-img.html" (dict "name" "new.gif" "alt" "NEW!") }}
   <span class="rainbow-text">
     This site is ALWAYS under construction!
   </span>
-  <img src="/img/geo/construction.gif" alt="Under Construction" style="height: 25px; vertical-align: middle;">
+  {{ partial "geo-img.html" (dict "name" "construction.gif" "alt" "Under Construction" "style" "height: 25px; vertical-align: middle;") }}
 </marquee>
 
 {{ end }}

@@ -5,19 +5,19 @@
 
     <!-- Badges -->
     <div class="badges" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; margin: 10px 0;">
-      <img src="/img/geo/netscape.gif" alt="Best viewed with Netscape Navigator">
-      <img src="/img/geo/hot.gif" alt="HOT!">
+      {{ partial "geo-img.html" (dict "name" "netscape.gif" "alt" "Best viewed with Netscape Navigator") }}
+      {{ partial "geo-img.html" (dict "name" "hot.gif" "alt" "HOT!") }}
       <span class="badge">Made with Hugo</span>
-      <img src="/img/geo/new.gif" alt="NEW!">
+      {{ partial "geo-img.html" (dict "name" "new.gif" "alt" "NEW!") }}
       <span class="badge">Y2K compliant!</span>
     </div>
 
     <!-- Under Construction -->
     <div style="margin: 10px 0;">
-      <img src="/img/geo/flames.gif" alt="FIRE!" style="height: 25px;">
+      {{ partial "geo-img.html" (dict "name" "flames.gif" "alt" "FIRE!" "style" "height: 25px;") }}
     </div>
     <div style="margin: 10px 0;">
-      <img src="/img/geo/construction.gif" alt="Under Construction">
+      {{ partial "geo-img.html" (dict "name" "construction.gif" "alt" "Under Construction") }}
     </div>
 
     <!-- Copyright -->
@@ -35,9 +35,9 @@
     {{ end }}
 
     <div style="margin-top: 10px;">
-      <img src="/img/geo/hot.gif" alt="HOT!">
-      <img src="/img/geo/new.gif" alt="NEW!">
-      <img src="/img/geo/hot.gif" alt="HOT!">
+      {{ partial "geo-img.html" (dict "name" "hot.gif" "alt" "HOT!") }}
+      {{ partial "geo-img.html" (dict "name" "new.gif" "alt" "NEW!") }}
+      {{ partial "geo-img.html" (dict "name" "hot.gif" "alt" "HOT!") }}
     </div>
 
     <div class="rainbow-bar"></div>

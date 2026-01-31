@@ -2,9 +2,9 @@
 <header class="geo-header">
   <div class="geo-header-inner">
     <div style="margin-bottom: 5px;">
-      <img src="/img/geo/hot.gif" alt="HOT!">
-      <img src="/img/geo/flames.gif" alt="FIRE!" style="height: 25px;">
-      <img src="/img/geo/new.gif" alt="NEW!">
+      {{ partial "geo-img.html" (dict "name" "hot.gif" "alt" "HOT!") }}
+      {{ partial "geo-img.html" (dict "name" "flames.gif" "alt" "FIRE!" "style" "height: 25px;") }}
+      {{ partial "geo-img.html" (dict "name" "new.gif" "alt" "NEW!") }}
     </div>
 
     <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
