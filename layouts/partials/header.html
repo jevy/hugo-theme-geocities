@@ -1,0 +1,9 @@
+<!-- GeoCities Welcome Banner -->
+<header class="geo-header">
+  <div class="geo-header-inner">
+    <h1>{{ .Site.Params.navigation.title | default .Site.Title }}</h1>
+    {{ with .Site.Params.navigation.subtitle }}
+    <p class="tagline">{{ . }}</p>
+    {{ end }}
+  </div>
+</header>

@@ -1,0 +1,32 @@
+<body>
+  <!-- Animated Stars Background -->
+  <div class="stars-container">
+    <div class="stars">
+      <div class="stars-layer"></div>
+      <div class="stars-layer"></div>
+      <div class="stars-layer"></div>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <!-- Header Banner -->
+    <header class="geo-header">
+      <div class="geo-header-inner">
+        <h1>{{ .Site.Params.navigation.title | default .Site.Title }}</h1>
+        {{ with .Site.Params.navigation.subtitle }}
+        <p class="tagline">{{ . }}</p>
+        {{ end }}
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="geo-nav">
+      <ul>
+        {{ range .Site.Menus.main -}}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{- end }}
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">

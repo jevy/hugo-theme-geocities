@@ -1,0 +1,27 @@
+{{ partial "head.html" . }}
+
+<body>
+  <!-- Animated Stars Background -->
+  {{ partial "stars.html" . }}
+
+  <div class="page-wrapper">
+    <!-- Header Banner -->
+    {{ partial "header.html" . }}
+
+    <!-- Navigation -->
+    {{ partial "nav.html" . }}
+
+    <!-- Main Content -->
+    <main class="main-content">
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    <!-- Footer -->
+    {{ partial "footer.html" . }}
+  </div>
+
+  <!-- Geocities Theme JavaScript -->
+  {{ $geocitiesJS := resources.Get "js/main.js" | minify | fingerprint }}
+  <script src="{{ $geocitiesJS.RelPermalink }}"></script>
+</body>
+</html>

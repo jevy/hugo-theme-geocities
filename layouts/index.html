@@ -1,0 +1,119 @@
+{{ define "main" }}
+<!-- Welcome Panel -->
+<div class="geo-panel">
+  <div class="geo-panel-title">Welcome to My CyberPad!</div>
+
+  <div class="marquee-container">
+    <span class="marquee-text">
+      *** Welcome to {{ .Site.Title }}'s Homepage! *** Thanks for stopping by! ***
+      {{ with .Site.Params.description }}{{ . }}{{ end }} ***
+    </span>
+  </div>
+
+  {{ with .Site.Params.banner }}
+  <p style="text-align: center; font-size: 1.2rem;">
+    {{ .subtitle | default "Welcome to my corner of the web!" }}
+  </p>
+  {{ end }}
+
+  <div class="rainbow-bar"></div>
+</div>
+
+{{ if .Site.Params.tiles.enable }}
+<!-- Projects / Showcases -->
+<div class="geo-panel">
+  <div class="geo-panel-title">My Projects &amp; Stuff</div>
+
+  {{ range .Site.Params.tiles.showcase }}
+  <div style="margin-bottom: 20px; padding: 15px; border: 2px ridge var(--geo-border); background: rgba(0,0,51,0.5);">
+    <h3 style="margin-top: 0;">
+      <a href="{{ .url }}" target="_blank">{{ .title }}</a>
+    </h3>
+    <p>{{ .subtitle }}</p>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
+
+<!-- Recent Articles -->
+{{ $articles := where .Site.RegularPages "Section" "articles" }}
+{{ if $articles }}
+<div class="geo-panel">
+  <div class="geo-panel-title">Latest Articles</div>
+
+  <ul class="posts-list">
+    {{ range first 5 $articles }}
+    <li>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      {{ if not .Date.IsZero }}
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}">
+        {{ .Date.Format "Mon, Jan 2, 2006" }}
+      </time>
+      {{ end }}
+    </li>
+    {{ end }}
+  </ul>
+
+  <p style="text-align: center;">
+    <a href="/articles/" class="geo-button geo-button-primary">View All Articles &raquo;</a>
+  </p>
+</div>
+{{ end }}
+
+<!-- Recent Podcasts -->
+{{ $podcasts := where .Site.RegularPages "Section" "podcasts" }}
+{{ if $podcasts }}
+<div class="geo-panel">
+  <div class="geo-panel-title">Latest Podcasts</div>
+
+  <ul class="posts-list">
+    {{ range first 3 $podcasts }}
+    <li>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      {{ if not .Date.IsZero }}
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}">
+        {{ .Date.Format "Mon, Jan 2, 2006" }}
+      </time>
+      {{ end }}
+    </li>
+    {{ end }}
+  </ul>
+
+  <p style="text-align: center;">
+    <a href="/podcasts/" class="geo-button geo-button-primary">Listen to More &raquo;</a>
+  </p>
+</div>
+{{ end }}
+
+<!-- Contact Section -->
+{{ if .Site.Params.contact.enable }}
+<div class="geo-panel">
+  <div class="geo-panel-title">Contact Me!</div>
+
+  <p style="text-align: center;">
+    Want to get in touch? Drop me a line!
+  </p>
+
+  <div style="text-align: center;">
+    {{ range .Site.Params.contact.email }}
+    <p>
+      <strong style="color: var(--geo-yellow);">{{ .title }}:</strong>
+      <a href="mailto:{{ .email }}">{{ .email }}</a>
+    </p>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+<!-- Guestbook teaser -->
+<div class="guestbook">
+  <h3>Sign My Guestbook!</h3>
+  <p>Thanks for visiting! Feel free to reach out via email or social media.</p>
+  <div style="text-align: center;">
+    {{ range .Site.Params.sidebar.social }}
+    <a href="{{ .url }}" target="_blank" class="geo-button" style="margin: 5px;">{{ .label }}</a>
+    {{ end }}
+  </div>
+</div>
+
+{{ end }}

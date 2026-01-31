@@ -1,0 +1,34 @@
+    </main>
+
+    <!-- Footer -->
+    <footer class="geo-footer">
+      <div class="geo-footer-inner">
+        <div class="rainbow-bar"></div>
+        <div class="visitor-counter">
+          <span id="visitor-count">000000</span>
+        </div>
+        <div class="badges">
+          <span class="badge">Best viewed in Netscape Navigator</span>
+          <span class="badge">Made with Hugo</span>
+          <span class="badge">GeoCities Forever!</span>
+        </div>
+        {{ if .Site.Params.sidebar.social }}
+        <div class="footer-links">
+          {{ range .Site.Params.sidebar.social }}
+          <a href="{{ .url }}" target="_blank" title="{{ .label }}">{{ .label }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+        <p class="footer-text">
+          &copy; {{ now.Format "2006" }} {{ with .Site.Params.copyright }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}
+        </p>
+        <div class="under-construction">Site eternally under construction</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Geocities Theme JavaScript -->
+  {{ $geocitiesJS := resources.Get "js/main.js" | minify | fingerprint }}
+  <script src="{{ $geocitiesJS.RelPermalink }}"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="geo-panel">
+  <div class="geo-panel-title">{{ .Title | default "Latest Posts" }}</div>
+
+  {{ if .Content }}
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+  <div class="rainbow-bar"></div>
+  {{ end }}
+
+  <ul class="posts-list">
+    {{ range .Data.Pages }}
+    <li>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      {{ if not .Date.IsZero }}
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}">
+        {{ .Date.Format "Mon, Jan 2, 2006" }}
+      </time>
+      {{ end }}
+    </li>
+    {{ end }}
+  </ul>
+
+  {{ if eq (len .Data.Pages) 0 }}
+  <p style="text-align: center; color: var(--geo-yellow);">
+    Nothing here yet... check back soon!
+  </p>
+  {{ end }}
+</div>
+{{ end }}

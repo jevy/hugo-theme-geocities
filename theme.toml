@@ -1,0 +1,15 @@
+# Geocities Theme for Hugo
+# A nostalgic 90s web-inspired theme
+
+name = "Geocities"
+license = "MIT"
+licenselink = "https://github.com/your-username/geocities-hugo/blob/master/LICENSE.md"
+description = "A nostalgic Geocities-inspired Hugo theme with starry backgrounds and neon vibes"
+homepage = "https://github.com/your-username/geocities-hugo"
+tags = ["geocities", "retro", "90s", "nostalgia", "fun"]
+features = ["starry background", "neon colors", "retro fonts", "visitor counter"]
+min_version = "0.80.0"
+
+[author]
+  name = "Jevin Maltais"
+  homepage = "https://www.jevy.org"

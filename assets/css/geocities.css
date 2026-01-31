@@ -1,0 +1,682 @@
+/* =============================================================================
+   GEOCITIES THEME - 90s Nostalgia CSS
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   CSS Custom Properties (Neon Color Palette)
+   ----------------------------------------------------------------------------- */
+:root {
+  --geo-cyan: #00FFFF;
+  --geo-yellow: #FFFF00;
+  --geo-magenta: #FF00FF;
+  --geo-lime: #00FF00;
+  --geo-orange: #FF6600;
+  --geo-pink: #FF69B4;
+  --geo-bg: #000033;
+  --geo-bg-dark: #000022;
+  --geo-panel: rgba(0, 0, 102, 0.8);
+  --geo-panel-solid: #000066;
+  --geo-border: #3333FF;
+  --geo-text: #FFFFFF;
+  --geo-link: #00FFFF;
+  --geo-link-hover: #FF00FF;
+
+  /* Fonts */
+  --font-pixel: 'VT323', 'Courier New', monospace;
+  --font-comic: 'Comic Neue', 'Comic Sans MS', cursive;
+  --font-body: 'Comic Neue', Arial, sans-serif;
+}
+
+/* -----------------------------------------------------------------------------
+   Base Styles
+   ----------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background-color: var(--geo-bg);
+  color: var(--geo-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* -----------------------------------------------------------------------------
+   Animated Starfield Background
+   ----------------------------------------------------------------------------- */
+.stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #000022 0%, #000044 50%, #000033 100%);
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.stars-layer {
+  position: absolute;
+  width: 100%;
+  height: 200%;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 230px 80px, #fff, transparent),
+    radial-gradient(2px 2px at 300px 150px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 370px 60px, #fff, transparent),
+    radial-gradient(2px 2px at 440px 200px, rgba(255,255,255,0.8), transparent);
+  background-repeat: repeat;
+  background-size: 500px 500px;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+.stars-layer:nth-child(2) {
+  background-image:
+    radial-gradient(1px 1px at 50px 100px, #fff, transparent),
+    radial-gradient(2px 2px at 120px 20px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 180px 180px, #fff, transparent),
+    radial-gradient(2px 2px at 250px 90px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 320px 140px, #fff, transparent),
+    radial-gradient(2px 2px at 400px 50px, rgba(255,255,255,0.7), transparent);
+  background-size: 450px 450px;
+  animation: twinkle 5s ease-in-out infinite alternate-reverse;
+  opacity: 0.8;
+}
+
+.stars-layer:nth-child(3) {
+  background-image:
+    radial-gradient(3px 3px at 100px 50px, var(--geo-cyan), transparent),
+    radial-gradient(3px 3px at 350px 180px, var(--geo-magenta), transparent),
+    radial-gradient(3px 3px at 200px 250px, var(--geo-yellow), transparent);
+  background-size: 600px 600px;
+  animation: twinkle-color 3s ease-in-out infinite alternate;
+  opacity: 0.6;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@keyframes twinkle-color {
+  0% { opacity: 0.3; transform: scale(1); }
+  100% { opacity: 0.8; transform: scale(1.1); }
+}
+
+/* -----------------------------------------------------------------------------
+   Typography
+   ----------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-pixel);
+  color: var(--geo-cyan);
+  text-shadow:
+    0 0 10px var(--geo-cyan),
+    0 0 20px var(--geo-cyan),
+    0 0 30px var(--geo-cyan);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; color: var(--geo-magenta); text-shadow: 0 0 10px var(--geo-magenta), 0 0 20px var(--geo-magenta); }
+h3 { font-size: 1.75rem; color: var(--geo-lime); text-shadow: 0 0 10px var(--geo-lime), 0 0 20px var(--geo-lime); }
+h4 { font-size: 1.5rem; color: var(--geo-yellow); text-shadow: 0 0 10px var(--geo-yellow), 0 0 20px var(--geo-yellow); }
+
+p {
+  margin: 1em 0;
+}
+
+a {
+  color: var(--geo-link);
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--geo-link-hover);
+  text-shadow: 0 0 10px var(--geo-link-hover);
+}
+
+/* -----------------------------------------------------------------------------
+   Layout
+   ----------------------------------------------------------------------------- */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* -----------------------------------------------------------------------------
+   Header / Welcome Banner
+   ----------------------------------------------------------------------------- */
+.geo-header {
+  background: linear-gradient(90deg,
+    var(--geo-magenta) 0%,
+    var(--geo-orange) 25%,
+    var(--geo-yellow) 50%,
+    var(--geo-lime) 75%,
+    var(--geo-cyan) 100%);
+  padding: 3px;
+  margin-bottom: 20px;
+}
+
+.geo-header-inner {
+  background: var(--geo-bg-dark);
+  padding: 20px;
+  text-align: center;
+}
+
+.geo-header h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--geo-yellow);
+  text-shadow:
+    2px 2px 0 var(--geo-orange),
+    0 0 20px var(--geo-yellow),
+    0 0 40px var(--geo-orange);
+  animation: glow-pulse 2s ease-in-out infinite alternate;
+}
+
+.geo-header .tagline {
+  font-family: var(--font-comic);
+  color: var(--geo-cyan);
+  margin: 10px 0 0 0;
+  font-size: 1.1rem;
+}
+
+@keyframes glow-pulse {
+  0% { text-shadow: 2px 2px 0 var(--geo-orange), 0 0 20px var(--geo-yellow), 0 0 40px var(--geo-orange); }
+  100% { text-shadow: 2px 2px 0 var(--geo-orange), 0 0 30px var(--geo-yellow), 0 0 60px var(--geo-orange); }
+}
+
+/* -----------------------------------------------------------------------------
+   Navigation
+   ----------------------------------------------------------------------------- */
+.geo-nav {
+  background: var(--geo-panel);
+  border: 3px ridge var(--geo-border);
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.geo-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.geo-nav li {
+  margin: 0;
+}
+
+.geo-nav a {
+  display: inline-block;
+  padding: 8px 16px;
+  background: linear-gradient(180deg, #666699 0%, #333366 50%, #222244 100%);
+  border: 2px outset #8888AA;
+  color: var(--geo-cyan);
+  text-decoration: none;
+  font-family: var(--font-pixel);
+  font-size: 1.1rem;
+  transition: all 0.1s ease;
+}
+
+.geo-nav a:hover {
+  border-style: inset;
+  background: linear-gradient(180deg, #333366 0%, #222244 50%, #111133 100%);
+  color: var(--geo-yellow);
+  text-shadow: 0 0 10px var(--geo-yellow);
+}
+
+/* -----------------------------------------------------------------------------
+   Content Panels
+   ----------------------------------------------------------------------------- */
+.geo-panel {
+  background: var(--geo-panel);
+  border: 3px ridge var(--geo-border);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.geo-panel-title {
+  background: linear-gradient(90deg, var(--geo-cyan), var(--geo-magenta));
+  color: var(--geo-bg-dark);
+  padding: 8px 15px;
+  margin: -20px -20px 15px -20px;
+  font-family: var(--font-pixel);
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+/* -----------------------------------------------------------------------------
+   Rainbow Separator
+   ----------------------------------------------------------------------------- */
+.rainbow-bar {
+  height: 8px;
+  background: linear-gradient(90deg,
+    #FF0000 0%,
+    #FF7F00 14%,
+    #FFFF00 28%,
+    #00FF00 42%,
+    #0000FF 56%,
+    #4B0082 70%,
+    #9400D3 84%,
+    #FF0000 100%);
+  background-size: 200% 100%;
+  animation: rainbow-scroll 3s linear infinite;
+  margin: 20px 0;
+}
+
+@keyframes rainbow-scroll {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Marquee-style scrolling text */
+.marquee-container {
+  overflow: hidden;
+  background: var(--geo-bg-dark);
+  border: 2px inset var(--geo-border);
+  padding: 5px 0;
+  margin: 15px 0;
+}
+
+.marquee-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee-scroll 15s linear infinite;
+  color: var(--geo-lime);
+  font-family: var(--font-pixel);
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* -----------------------------------------------------------------------------
+   Retro Buttons
+   ----------------------------------------------------------------------------- */
+.geo-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(180deg, #888888 0%, #666666 30%, #444444 70%, #333333 100%);
+  border: 3px outset #AAAAAA;
+  color: var(--geo-text);
+  text-decoration: none;
+  font-family: var(--font-pixel);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.geo-button:hover {
+  border-style: inset;
+  background: linear-gradient(180deg, #444444 0%, #333333 30%, #222222 70%, #111111 100%);
+  text-shadow: 0 0 5px var(--geo-cyan);
+}
+
+.geo-button-primary {
+  background: linear-gradient(180deg, #6666FF 0%, #4444CC 30%, #3333AA 70%, #222288 100%);
+  border-color: #8888FF;
+}
+
+.geo-button-danger {
+  background: linear-gradient(180deg, #FF6666 0%, #CC4444 30%, #AA3333 70%, #882222 100%);
+  border-color: #FF8888;
+}
+
+/* -----------------------------------------------------------------------------
+   Post/Article Styling
+   ----------------------------------------------------------------------------- */
+.post {
+  background: var(--geo-panel);
+  border: 3px ridge var(--geo-border);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.post h1 {
+  margin-top: 0;
+  border-bottom: 2px dashed var(--geo-cyan);
+  padding-bottom: 10px;
+}
+
+.post-date {
+  display: inline-block;
+  background: var(--geo-panel-solid);
+  border: 2px inset var(--geo-border);
+  padding: 5px 10px;
+  color: var(--geo-lime);
+  font-family: var(--font-pixel);
+  margin-bottom: 15px;
+}
+
+.post-content {
+  font-family: var(--font-body);
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border: 3px ridge var(--geo-magenta);
+  margin: 10px 0;
+}
+
+.post-content pre,
+.post-content code {
+  background: #111133;
+  border: 2px inset var(--geo-border);
+  padding: 2px 6px;
+  font-family: 'Courier New', monospace;
+  color: var(--geo-lime);
+}
+
+.post-content pre {
+  padding: 15px;
+  overflow-x: auto;
+}
+
+.post-content pre code {
+  border: none;
+  padding: 0;
+}
+
+.post-content blockquote {
+  border-left: 4px solid var(--geo-magenta);
+  margin: 20px 0;
+  padding: 10px 20px;
+  background: rgba(255, 0, 255, 0.1);
+  font-style: italic;
+}
+
+/* -----------------------------------------------------------------------------
+   List Pages (Articles, Podcasts)
+   ----------------------------------------------------------------------------- */
+.posts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.posts-list li {
+  background: var(--geo-panel);
+  border: 2px ridge var(--geo-border);
+  margin-bottom: 10px;
+  padding: 15px;
+  transition: all 0.2s ease;
+}
+
+.posts-list li:hover {
+  border-color: var(--geo-cyan);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.posts-list a {
+  font-family: var(--font-pixel);
+  font-size: 1.2rem;
+  color: var(--geo-cyan);
+}
+
+.posts-list time {
+  display: block;
+  font-family: var(--font-pixel);
+  color: var(--geo-lime);
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* -----------------------------------------------------------------------------
+   Footer
+   ----------------------------------------------------------------------------- */
+.geo-footer {
+  background: linear-gradient(90deg,
+    var(--geo-magenta) 0%,
+    var(--geo-orange) 25%,
+    var(--geo-yellow) 50%,
+    var(--geo-lime) 75%,
+    var(--geo-cyan) 100%);
+  padding: 3px;
+  margin-top: auto;
+}
+
+.geo-footer-inner {
+  background: var(--geo-bg-dark);
+  padding: 20px;
+  text-align: center;
+}
+
+.visitor-counter {
+  display: inline-block;
+  background: #000000;
+  border: 2px inset #444444;
+  padding: 5px 15px;
+  margin: 10px 0;
+  font-family: 'Courier New', monospace;
+  color: var(--geo-lime);
+  font-size: 1.2rem;
+}
+
+.visitor-counter::before {
+  content: "Visitors: ";
+  color: var(--geo-yellow);
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  background: var(--geo-panel-solid);
+  border: 2px outset #666699;
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  color: var(--geo-text);
+}
+
+.footer-text {
+  font-family: var(--font-comic);
+  color: var(--geo-cyan);
+  font-size: 0.9rem;
+  margin: 10px 0;
+}
+
+.footer-links {
+  margin-top: 15px;
+}
+
+.footer-links a {
+  margin: 0 10px;
+  color: var(--geo-cyan);
+}
+
+/* Under construction notice */
+.under-construction {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--geo-yellow), var(--geo-orange));
+  color: var(--geo-bg-dark);
+  padding: 5px 15px;
+  font-family: var(--font-pixel);
+  animation: blink-slow 1s ease-in-out infinite alternate;
+  margin: 10px 0;
+}
+
+@keyframes blink-slow {
+  0% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* -----------------------------------------------------------------------------
+   Guestbook / Special Sections
+   ----------------------------------------------------------------------------- */
+.guestbook {
+  background: var(--geo-panel);
+  border: 3px double var(--geo-yellow);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.guestbook h3 {
+  margin-top: 0;
+  color: var(--geo-yellow);
+}
+
+/* -----------------------------------------------------------------------------
+   Responsive Design
+   ----------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 10px;
+  }
+
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.3rem; }
+
+  .geo-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .geo-nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .geo-nav a {
+    width: 200px;
+    text-align: center;
+  }
+
+  .badges {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Special Effects
+   ----------------------------------------------------------------------------- */
+
+/* Glowing text utility */
+.glow {
+  animation: text-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes text-glow {
+  0% { text-shadow: 0 0 10px currentColor; }
+  100% { text-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+}
+
+/* Spinning element (for icons) */
+.spin {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px ridge var(--geo-border);
+  margin: 20px 0;
+}
+
+th, td {
+  border: 2px ridge var(--geo-border);
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background: linear-gradient(180deg, var(--geo-panel-solid), var(--geo-bg-dark));
+  color: var(--geo-cyan);
+  font-family: var(--font-pixel);
+}
+
+td {
+  background: var(--geo-panel);
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 25px;
+}
+
+li {
+  margin: 8px 0;
+}
+
+ul li::marker {
+  color: var(--geo-magenta);
+}
+
+ol li::marker {
+  color: var(--geo-lime);
+}
+
+/* Selection styling */
+::selection {
+  background: var(--geo-magenta);
+  color: var(--geo-text);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--geo-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--geo-cyan), var(--geo-magenta));
+  border: 2px solid var(--geo-bg-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(var(--geo-magenta), var(--geo-cyan));
+}
