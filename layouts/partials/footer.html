@@ -20,9 +20,9 @@
 
     <!-- Navigation Links -->
     <div style="margin: 10px 0;">
-      <a href="/" style="color: var(--geo-blue);">Home</a>
+      <a href="{{ .Site.Home.RelPermalink }}" style="color: var(--geo-blue);">Home</a>
       <img src="{{ "img/geo/new.gif" | relURL }}" alt="NEW!">
-      <a href="/articles/" style="color: var(--geo-blue);">About</a>
+      <a href="{{ "articles/" | relURL }}" style="color: var(--geo-blue);">Articles</a>
       <img src="{{ "img/geo/new.gif" | relURL }}" alt="NEW!">
       <a href="mailto:jevin@jevy.org" style="color: var(--geo-blue);">Contact</a>
       <img src="{{ "img/geo/new.gif" | relURL }}" alt="NEW!">

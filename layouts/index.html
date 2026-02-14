@@ -1,4 +1,4 @@
-{{ define "main" }}
+{{ define "content" }}
 
 <!-- WELCOME MARQUEE - Essential! -->
 <marquee behavior="alternate" scrollamount="5">
@@ -64,18 +64,17 @@
     {{ partial "geo-img.html" (dict "name" "hot.gif" "alt" "HOT!" "style" "vertical-align: middle;") }}
   </div>
 
-  {{ range .Site.Params.tiles.showcase }}
+  {{ range $index, $showcase := .Site.Params.tiles.showcase }}
   <div style="margin-bottom: 20px; padding: 15px; border: 3px ridge #ff00ff; background: #fff;">
     <h3 style="margin-top: 0; color: blue;">
       <span class="bounce" style="display: inline-block;">></span>
-      <a href="{{ .url }}" target="_blank">{{ .title }}</a>
-      {{ if eq (mod $.Scratch.Get "proj-idx" | default 0) 0 }}
+      <a href="{{ $showcase.url }}" target="_blank">{{ $showcase.title }}</a>
+      {{ if eq $index 0 }}
       {{ partial "geo-img.html" (dict "name" "new.gif" "alt" "NEW!" "style" "vertical-align: middle;") }}
       {{ end }}
     </h3>
-    <p style="color: #000;">{{ .subtitle }}</p>
+    <p style="color: #000;">{{ $showcase.subtitle }}</p>
   </div>
-  {{ $.Scratch.Add "proj-idx" 1 }}
   {{ end }}
 </div>
 {{ end }}
@@ -114,7 +113,7 @@
   <div class="rainbow-bar"></div>
 
   <p style="text-align: center;">
-    <a href="/articles/" class="geo-button geo-button-primary">
+    <a href="{{ "articles/" | relURL }}" class="geo-button geo-button-primary">
       <span class="bounce" style="display: inline-block;">>></span>
       View All Articles
       <span class="bounce" style="display: inline-block;"><<</span>
@@ -146,7 +145,7 @@
   </ul>
 
   <p style="text-align: center;">
-    <a href="/podcasts/" class="geo-button geo-button-primary">
+    <a href="{{ "podcasts/" | relURL }}" class="geo-button geo-button-primary">
       Listen to More >>>
     </a>
   </p>
