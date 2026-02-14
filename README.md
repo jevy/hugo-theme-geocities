@@ -2,7 +2,7 @@
 
 A nostalgic 90s GeoCities-inspired Hugo theme complete with starry backgrounds, rainbow text, marquees, animated GIFs, visitor counters, and everything that made the early web great.
 
-![Screenshot placeholder](https://via.placeholder.com/800x400?text=Screenshot+Coming+Soon)
+![Geocities Hugo Theme Screenshot](images/screenshot.png)
 
 ## Quick Start
 
