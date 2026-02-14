@@ -29,6 +29,5 @@
   <!-- Geocities Theme JavaScript -->
   {{ $geocitiesJS := resources.Get "js/main.js" | minify | fingerprint }}
   <script src="{{ $geocitiesJS.RelPermalink }}"></script>
-  <script src="{{ "js/theme-toggle.js" | absURL }}"></script>
 </body>
 </html>

@@ -3,11 +3,11 @@
 
 name = "Geocities"
 license = "MIT"
-licenselink = "https://github.com/your-username/geocities-hugo/blob/master/LICENSE.md"
-description = "A nostalgic Geocities-inspired Hugo theme with starry backgrounds and neon vibes"
-homepage = "https://github.com/your-username/geocities-hugo"
-tags = ["geocities", "retro", "90s", "nostalgia", "fun"]
-features = ["starry background", "neon colors", "retro fonts", "visitor counter"]
+licenselink = "https://github.com/jevy/hugo-theme-geocities/blob/master/LICENSE"
+description = "A nostalgic GeoCities-inspired Hugo theme with starry backgrounds, rainbow text, marquees, animated GIFs, and visitor counters"
+homepage = "https://github.com/jevy/hugo-theme-geocities"
+tags = ["geocities", "retro", "90s", "nostalgia", "fun", "personal", "blog"]
+features = ["starry background", "neon colors", "retro fonts", "visitor counter", "marquees", "rainbow text", "animated GIFs", "responsive"]
 min_version = "0.80.0"
 
 [author]

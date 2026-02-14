@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   {{ if .IsHome -}}
-  <title>{{ .Site.Title }} - Welcome to my CyberPad!</title>
+  <title>{{ .Site.Title }} - {{ .Site.Params.header.homepageTitle | default "Welcome to my Homepage!" }}</title>
   {{- else -}}
   <title>{{ .Title }} &middot; {{ .Site.Title }}</title>
   {{- end }}

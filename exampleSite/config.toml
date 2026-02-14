@@ -1,0 +1,142 @@
+# =============================================================================
+# Geocities Hugo Theme - Example Configuration
+# =============================================================================
+
+baseURL = "https://example.com/"
+languageCode = "en-us"
+title = "My Rad Homepage"
+theme = "geocities"
+
+# =============================================================================
+# Menus
+# =============================================================================
+# These appear in the footer navigation.
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Articles"
+  url = "/articles"
+  weight = 2
+
+# =============================================================================
+# Output formats
+# =============================================================================
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+# =============================================================================
+# Theme Parameters
+# =============================================================================
+
+[params]
+  description = "The raddest homepage on the World Wide Web!"
+  author = "WebMaster2000"
+
+  # ---------------------------------------------------------------------------
+  # Header
+  # ---------------------------------------------------------------------------
+  # Shown in the banner at the top of every page.
+
+  [params.header]
+    # The big rainbow text in the banner (default: "CyberPad!")
+    title = "CyberPad!"
+
+    # Subtitle below the title (default: "Welcome to my corner of the web!")
+    subtitle = "WebMaster2000's Corner of the Internet"
+
+    # Small tagline below the subtitle (default: "building awesome things on the web!")
+    tagline = "building awesome things on the web since 1996!"
+
+    # Homepage <title> tag suffix (default: "Welcome to my Homepage!")
+    # Also used as the welcome panel heading.
+    homepageTitle = "Welcome to my CyberPad!"
+
+  # ---------------------------------------------------------------------------
+  # Theme Toggle (optional)
+  # ---------------------------------------------------------------------------
+  # If set, a toggle button appears in the header and sidebar linking to the
+  # given URL. Useful for switching between a retro and a normal theme.
+  # Remove this section entirely to hide the toggle buttons.
+
+  # [params.themeToggle]
+  #   url = "/"
+  #   label = "Normal Mode"
+
+  # ---------------------------------------------------------------------------
+  # Banner (optional)
+  # ---------------------------------------------------------------------------
+  # Shown in the welcome panel on the homepage.
+
+  [params.banner]
+    subtitle = "Welcome to my corner of the web!"
+
+  # ---------------------------------------------------------------------------
+  # Tiles / Projects (optional)
+  # ---------------------------------------------------------------------------
+  # Showcase cards on the homepage.
+
+  [params.tiles]
+    enable = true
+
+    [[params.tiles.showcase]]
+      title = "My Awesome Project"
+      subtitle = "The coolest project on the internet"
+      url = "https://example.com/project"
+
+    [[params.tiles.showcase]]
+      title = "GeoCities Fan Club"
+      subtitle = "Bringing back the 90s, one <blink> tag at a time"
+      url = "https://example.com/fanclub"
+
+  # ---------------------------------------------------------------------------
+  # Contact (optional)
+  # ---------------------------------------------------------------------------
+  # Email addresses shown on the homepage contact section and in the sidebar
+  # "Email Me" button. The first entry is used for the sidebar and footer.
+
+  [params.contact]
+    enable = true
+
+    [[params.contact.email]]
+      title = "Email"
+      email = "webmaster@example.com"
+
+  # ---------------------------------------------------------------------------
+  # Sidebar
+  # ---------------------------------------------------------------------------
+
+  [params.sidebar]
+    # Custom links in the "Hot Links!" sidebar box.
+    # Set external = true for off-site links (opens in new tab).
+
+    [[params.sidebar.links]]
+      name = "My Blog"
+      url = "articles/"
+      external = false
+
+    [[params.sidebar.links]]
+      name = "Cool Site"
+      url = "https://example.com"
+      external = true
+
+    # Social links shown in the footer and guestbook section.
+
+    [[params.sidebar.social]]
+      url = "https://twitter.com/example"
+      label = "Twitter"
+
+    [[params.sidebar.social]]
+      url = "https://github.com/example"
+      label = "GitHub"
+
+    [[params.sidebar.social]]
+      url = "mailto:webmaster@example.com"
+      label = "Email"

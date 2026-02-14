@@ -13,7 +13,7 @@
 <div class="geo-panel">
   <div class="geo-panel-title">
     <span class="bounce" style="display: inline-block;">*</span>
-    Welcome to My CyberPad!
+    {{ .Site.Params.header.homepageTitle | default "Welcome to my Homepage!" }}
     <span class="bounce" style="display: inline-block;">*</span>
   </div>
 

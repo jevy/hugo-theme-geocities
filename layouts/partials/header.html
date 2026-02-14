@@ -2,15 +2,15 @@
 <header class="geo-header">
   <div class="geo-header-inner">
     <h1 style="font-size: 2.5rem; margin: 0;">
-      Welcome to my <span class="rainbow-text">CyberPad!</span>
+      Welcome to my <span class="rainbow-text">{{ .Site.Params.header.title | default "CyberPad!" }}</span>
     </h1>
 
     <p class="tagline" style="margin: 5px 0;">
-      {{ .Site.Params.navigation.subtitle | default "Staff Engineer @ Spellbook | Crafting the Future of Legal Tech" }}
+      {{ .Site.Params.header.subtitle | default "Welcome to my corner of the web!" }}
     </p>
 
     <p style="color: var(--geo-yellow); font-size: 0.9rem; margin: 5px 0;">
-      just a cool dude building awesome things on the web!
+      {{ .Site.Params.header.tagline | default "building awesome things on the web!" }}
     </p>
 
     <div style="margin-top: 10px;">
@@ -22,9 +22,11 @@
       <a href="#content" class="sidebar-btn" style="display: inline-block; padding: 8px 20px; background: var(--geo-red);">
         Explore My World!
       </a>
-      <button onclick="toggleTheme()" class="geo-toggle" title="Switch to normal mode" style="margin-left: 10px;">
-        Normal Mode
-      </button>
+      {{ with .Site.Params.themeToggle }}
+      <a href="{{ .url }}" class="geo-toggle" style="margin-left: 10px;">
+        {{ .label | default "Normal Mode" }}
+      </a>
+      {{ end }}
     </div>
   </div>
 </header>

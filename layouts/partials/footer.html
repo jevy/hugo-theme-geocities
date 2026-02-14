@@ -20,12 +20,13 @@
 
     <!-- Navigation Links -->
     <div style="margin: 10px 0;">
-      <a href="{{ .Site.Home.RelPermalink }}" style="color: var(--geo-blue);">Home</a>
+      {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}" style="color: var(--geo-blue);">{{ .Name }}</a>
       <img src="{{ "img/geo/new.gif" | relURL }}" alt="NEW!">
-      <a href="{{ "articles/" | relURL }}" style="color: var(--geo-blue);">Articles</a>
-      <img src="{{ "img/geo/new.gif" | relURL }}" alt="NEW!">
-      <a href="mailto:jevin@jevy.org" style="color: var(--geo-blue);">Contact</a>
-      <img src="{{ "img/geo/new.gif" | relURL }}" alt="NEW!">
+      {{ end }}
+      {{ $email := "" }}{{ with $.Site.Params.contact }}{{ with .email }}{{ $email = (index . 0).email }}{{ end }}{{ end }}
+      {{ with $email }}<a href="mailto:{{ . }}" style="color: var(--geo-blue);">Contact</a>
+      <img src="{{ "img/geo/new.gif" | relURL }}" alt="NEW!">{{ end }}
     </div>
 
     <p style="color: var(--geo-purple); font-size: 0.85rem;">

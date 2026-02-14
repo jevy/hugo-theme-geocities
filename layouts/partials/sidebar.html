@@ -2,19 +2,21 @@
 <aside class="geo-sidebar">
 
   <!-- Toggle back to normal mode -->
+  {{ with .Site.Params.themeToggle }}
   <div class="sidebar-box">
-    <button onclick="toggleTheme()" style="background: #000080; color: #fff; border: 3px outset #ccc; padding: 10px; cursor: pointer; font-family: 'Comic Sans MS', cursive; font-size: 1rem; width: 100%;">
+    <a href="{{ .url }}" style="display: block; background: #000080; color: #fff; border: 3px outset #ccc; padding: 10px; cursor: pointer; font-family: 'Comic Sans MS', cursive; font-size: 1rem; width: 100%; text-align: center; text-decoration: none; box-sizing: border-box;">
       <img src="{{ "img/geo/new.gif" | relURL }}" alt="NEW!" style="vertical-align: middle;">
-      Hinged Mode
-    </button>
+      {{ .label | default "Normal Mode" }}
+    </a>
   </div>
+  {{ end }}
 
   <!-- Visitor Counter -->
   <div class="sidebar-box">
     <h4>Visitor Counter</h4>
     <img src="{{ "img/geo/counter.gif" | relURL }}" alt="Counter">
     <p style="font-family: 'Courier New', monospace; color: #00FF00; background: #000; padding: 5px;">
-      1,337,420
+      <span id="visitor-count">1,337,420</span>
     </p>
     <img src="{{ "img/geo/counter2.gif" | relURL }}" alt="Counter 2">
   </div>
@@ -30,7 +32,8 @@
   <!-- Email Me -->
   <div class="sidebar-box">
     <h4>Get in Touch!</h4>
-    <a href="mailto:jevin@jevy.org">
+    {{ $email := "" }}{{ with .Site.Params.contact }}{{ with .email }}{{ $email = (index . 0).email }}{{ end }}{{ end }}
+    <a href="mailto:{{ $email | default "you@example.com" }}">
       <img src="{{ "img/geo/emailme.gif" | relURL }}" alt="Email Me!">
     </a>
     <p><span class="blink" style="color: var(--geo-red);">Click to email!</span></p>
@@ -48,10 +51,12 @@
   <div class="sidebar-box">
     <h4>Hot Links!</h4>
     <img src="{{ "img/geo/yahooweek.gif" | relURL }}" alt="Yahoo Pick of the Week"><br>
-    <a href="https://spellbook.legal" target="_blank">Spellbook</a><br>
-    <img src="{{ "img/geo/new.gif" | relURL }}" alt="NEW!">
-    <a href="{{ "podcasts/" | relURL }}">Podcasts</a><br>
+    {{ range .Site.Params.sidebar.links }}
+    {{ if .external }}<a href="{{ .url }}" target="_blank">{{ .name }}</a>{{ else }}<a href="{{ .url | relURL }}">{{ .name }}</a>{{ end }}<br>
+    {{ end }}
+    {{ if not .Site.Params.sidebar.links }}
     <a href="{{ "articles/" | relURL }}">Articles</a>
+    {{ end }}
   </div>
 
   <!-- Under Construction -->
