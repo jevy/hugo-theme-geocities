@@ -4,6 +4,8 @@ A nostalgic 90s GeoCities-inspired Hugo theme complete with starry backgrounds, 
 
 ![Geocities Hugo Theme Screenshot](images/screenshot.png)
 
+**[Live Demo](https://www.jevy.org/retro)**
+
 ## Quick Start
 
 ```bash
